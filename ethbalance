@@ -6,9 +6,7 @@ import time
 import json
 
 Prices = []
-tryprice = ""
-high = 0
-value = 0
+USDprice = ""
 
 def tryethprice():
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
@@ -25,10 +23,10 @@ def tryethprice():
     return info
 
 def getvalue(wallet):
-    global tryprice
+    global USDprice
 
     url = f"https://deep-index.moralis.io/api/v2/{wallet}/balance?chain=eth"
-    tryprice = cryptocompare.get_price('ETH', currency='TRY').get("ETH")["TRY"]
+    USDprice = cryptocompare.get_price('ETH', currency='TRY').get("ETH")["TRY"]
 
     headers = {
         "accept": "application/json",
@@ -56,4 +54,3 @@ while True:
     USD = PricesToUSD()
     print(USD)
     time.sleep(30)
-
