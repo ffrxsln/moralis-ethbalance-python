@@ -26,7 +26,7 @@ def getvalue(wallet):
     global USDprice
 
     url = f"https://deep-index.moralis.io/api/v2/{wallet}/balance?chain=eth"
-    USDprice = cryptocompare.get_price('ETH', currency='TRY').get("ETH")["TRY"]
+    USDprice = cryptocompare.get_price('ETH', currency='USD').get("ETH")["USD"]
 
     headers = {
         "accept": "application/json",
